@@ -5,8 +5,9 @@ import "./home.css";
 
 function Home() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="">
+      <header className="">
+        <h1 className="text-3xl font-bold underline">Test</h1>
         <Navbar />
         <SingUp />
         <Login />
