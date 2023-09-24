@@ -1,4 +1,4 @@
-# toBeHealthy
+# Meddical application "toBeHealthy"
 IBM Capstone Project
 
 ## Website Layout
