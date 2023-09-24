@@ -1,0 +1,34 @@
+body {
+    font-family: "Nunito Sans", sans-serif !important;
+    color: #4c4c4d;
+    background: url(../images/bgr.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  /* Navbar  */
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo .navbar-brand {
+    color: #4c4c4d;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  button#\#sing_up {
+    margin-right: 0.5rem;
+  }
+  
+  button#\#sing_up,
+  button#\#login {
+    border-radius: 20px;
+  }
+  
+  /* Navbar end*/
+  
