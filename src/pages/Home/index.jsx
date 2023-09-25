@@ -5,15 +5,11 @@ import "./home.css";
 
 function Home() {
   return (
-    // add class "dark" to <body/> - create dark theme, add child class with "dark: ... "
-    <body className="">
-      <header className="">
-        <h1 className="text-3xl font-bold underline">Test</h1>
+      <header className="container m-auto px-5">
         <Navbar />
         <SingUp />
         <Login />
       </header>
-    </body>
   );
 }
 
