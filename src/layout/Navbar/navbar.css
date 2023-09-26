@@ -3,10 +3,16 @@
   @apply items-center;
 }
 
+.logo a,
+.nav-item a {
+  @apply text-black;
+
+}
 .navbar .nav-item {
   @apply px-4;
+  @apply text-black;
 }
 
-.navbar .nav-item:hover {
+.navbar .nav-item a:hover {
   @apply text-primary;
 }

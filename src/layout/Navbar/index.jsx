@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="flex justify-between py-4">
       <div className="logo">
-        <a className="text-3xl font-bold mr-1" href="#">
+        <a className="text-4xl font-bold mr-1" href="#">
           toBeHealthy
         </a>
         <img src={require("../../assets/images/health-care.png")} />

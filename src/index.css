@@ -3,6 +3,20 @@
 @tailwind utilities;
 
 @layer components {
+  h1 {
+    @apply text-3xl;
+    @apply font-bold;
+  }
+  a {
+    @apply text-primary;
+  }
+
+  .btn {
+    @apply py-2 px-6;
+    @apply rounded-md;
+    @apply text-white;
+    @apply text-sm;
+  }
   .btn-outline-primary {
     @apply border border-solid border-primary;
     @apply py-1 px-6;
@@ -10,6 +24,13 @@
   }
   .btn-outline-primary:hover {
     @apply text-primary;
+  }
+
+  .form {
+    @apply m-auto;
+    @apply p-10;
+    @apply bg-slate-100;
+    width: 500px;
   }
 }
 
