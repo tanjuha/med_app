@@ -5,13 +5,11 @@ import "./home.css";
 
 function Home() {
   return (
-    <div className="App">
-      <header className="App-header">
+      <header className="container m-auto px-5">
         <Navbar />
         <SingUp />
         <Login />
       </header>
-    </div>
   );
 }
 

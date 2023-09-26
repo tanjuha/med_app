@@ -1,11 +1,12 @@
 import React from "react";
 import Button from "../../../components/Button";
+import "../../../components/Button/Form/form.css";
 
 function Login() {
   return (
     <div className="form">
       <h1>Login</h1>
-      <p>
+      <p className="mb-6">
         Are you have a new member? <a href="#">Sing Up Here</a>
       </p>
 
@@ -28,9 +29,9 @@ function Login() {
             placeholder="Password"
           />
         </div>
-        <div className="d-grid gap-2">
-          <Button label="Submit" type="submit" className="btn btn-primary" />
-          <Button label="Reset" type="reset" className="btn btn-danger" />
+        <div className="form-btn">
+          <Button label="Submit" type="submit" className="btn bg-primary" />
+          <Button label="Reset" type="reset" className="btn bg-red-600" />
         </div>
       </form>
 

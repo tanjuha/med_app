@@ -1,36 +1,33 @@
-body {
-    font-family: "Nunito Sans", sans-serif !important;
-    color: #4c4c4d;
-    background: url(../images/bgr.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-  
-  /* Form  */
-  
-  .form {
-    width: 500px;
-    background-color: #ffffff;
-    margin: 30px auto;
-    padding: 50px;
-  }
-  
-  .form h1,
-  .form p {
-    text-align: center;
-  }
-  
-  .form .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .linkForgot {
-    display: block;
-    margin-top: 30px;
-    text-align: center;
-  }
-  
-  /* Form end*/
-  
+.form h1,
+.form p {
+  text-align: center;
+}
+
+.form .form-group {
+  @apply mb-6;
+}
+
+.form-group label {
+  @apply font-bold;
+  @apply block;
+  @apply text-sm;
+}
+
+.form-control {
+  @apply w-full;
+  @apply p-2;
+  @apply text-sm;
+  @apply border border-solid border-gray-300;
+  @apply rounded-md;
+}
+
+.form-btn .btn {
+  @apply w-full;
+  @apply mb-3;
+}
+
+.linkForgot {
+  @apply block;
+  @apply mt-5;
+  @apply text-center;
+}
