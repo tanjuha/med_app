@@ -1,13 +1,15 @@
 import React from "react";
-import Button from "../../../components/Button";
-import "../../../components/Button/Form/form.css";
+import Button from "../../components/Button";
+import "../../components/Form/form.css";
+import { NavLink } from "react-router-dom";
 
 function Login() {
   return (
     <div className="form">
       <h1>Login</h1>
       <p className="mb-6">
-        Are you have a new member? <a href="#">Sing Up Here</a>
+        Are you have a new member?
+        <NavLink to="/sing-up" className="ml-1">Sing Up Here</NavLink>
       </p>
 
       <form>
@@ -34,10 +36,9 @@ function Login() {
           <Button label="Reset" type="reset" className="btn bg-red-600" />
         </div>
       </form>
-
-      <a className="linkForgot" href="#">
+      <NavLink className="linkForgot" to="/">
         Forgot Password?
-      </a>
+      </NavLink>
     </div>
   );
 }

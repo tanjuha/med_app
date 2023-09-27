@@ -1,14 +1,14 @@
 import React from "react";
-import Button from "../../components/Button";
 import "./navbar.css";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
     <nav className="flex justify-between py-4">
       <div className="logo">
-        <a className="text-4xl font-bold mr-1" href="#">
+        <NavLink className="text-4xl font-bold mr-1" to="/">
           toBeHealthy
-        </a>
+        </NavLink>
         <img src={require("../../assets/images/health-care.png")} />
       </div>
       <ul className="navbar flex items-center">
@@ -33,18 +33,18 @@ function Navbar() {
           </a>
         </li>
         <li>
-          <Button
-            label="Sing Up"
+          <NavLink
+            to="/sing-up"
             id="sing_up"
             className="btn-outline-primary mr-4"
-          />
+          >
+            Sing Up
+          </NavLink>
         </li>
         <li>
-          <Button
-            label="Login"
-            id="login"
-            className="btn-outline-primary"
-          />
+          <NavLink to="/login" id="login" className="btn-outline-primary">
+            Login
+          </NavLink>
         </li>
       </ul>
     </nav>
