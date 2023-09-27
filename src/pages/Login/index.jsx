@@ -1,18 +1,37 @@
 import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 import Button from "../../components/Button";
 import "../../components/Form/form.css";
-import { NavLink } from "react-router-dom";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ email: email, password: password })
+    );
+
+    navigate("/");
+  };
+
   return (
     <div className="form">
       <h1>Login</h1>
       <p className="mb-6">
         Are you have a new member?
-        <NavLink to="/sing-up" className="ml-1">Sing Up Here</NavLink>
+        <NavLink to="/sing-up" className="ml-1">
+          Sing Up Here
+        </NavLink>
       </p>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="loginEmail">Email</label>
           <input
@@ -20,6 +39,8 @@ function Login() {
             className="form-control"
             id="loginEmail"
             placeholder="Enter your email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
           />
         </div>
         <div className="form-group">
@@ -29,6 +50,8 @@ function Login() {
             className="form-control"
             id="loginPassword"
             placeholder="Password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
           />
         </div>
         <div className="form-btn">

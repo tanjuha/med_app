@@ -1,9 +1,29 @@
 import React from "react";
+import { NavLink, useNavigate  } from "react-router-dom";
+import { useState } from "react";
+
 import Button from "../../components/Button";
 import "../../components/Form/form.css";
-import { NavLink } from "react-router-dom";
 
 function SingUp() {
+  const [role, setRole] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    localStorage.setItem(
+      "user",
+      JSON.stringify({role: role, name: name, phone: phone, email: email, password: password })
+    );
+
+    navigate("/");
+  };
+
   return (
     <div className="form">
       <h1>Sing Up</h1>
@@ -14,7 +34,7 @@ function SingUp() {
         </NavLink>
       </p>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="role" className="form-label">
             Role
@@ -24,6 +44,8 @@ function SingUp() {
             list="roleOptions"
             id="role"
             placeholder="Select role"
+            value={role}
+            onChange={(event) => setRole(event.target.value)}
           />
           <datalist id="roleOptions">
             <option value="User"></option>
@@ -38,6 +60,8 @@ function SingUp() {
             className="form-control"
             id="name"
             placeholder="Enter your name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
           />
         </div>
         <div className="form-group">
@@ -47,6 +71,8 @@ function SingUp() {
             className="form-control"
             id="exampleInputPhone"
             placeholder="Enter your phone"
+            value={phone}
+            onChange={(event) => setPhone(event.target.value)}
           />
         </div>
         <div className="form-group">
@@ -56,6 +82,8 @@ function SingUp() {
             className="form-control"
             id="singUpEmail"
             placeholder="Enter your email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
           />
         </div>
         <div className="form-group">
@@ -65,6 +93,8 @@ function SingUp() {
             className="form-control"
             id="singUpPassword"
             placeholder="Password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
           />
         </div>
         <div className="form-btn">
