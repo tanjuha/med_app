@@ -20,6 +20,7 @@
   .btn-outline-primary {
     @apply border border-solid border-primary;
     @apply py-1 px-6;
+    @apply text-black;
     border-radius: 15px;
   }
   .btn-outline-primary:hover {
@@ -27,7 +28,7 @@
   }
 
   .form {
-    @apply m-auto;
+    @apply mx-auto mt-10;
     @apply p-10;
     @apply bg-slate-100;
     width: 500px;

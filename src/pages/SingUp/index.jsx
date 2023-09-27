@@ -1,13 +1,17 @@
 import React from "react";
-import Button from "../../../components/Button";
-import "../../../components/Button/Form/form.css";
+import Button from "../../components/Button";
+import "../../components/Form/form.css";
+import { NavLink } from "react-router-dom";
 
 function SingUp() {
   return (
     <div className="form">
       <h1>Sing Up</h1>
       <p className="mb-6">
-        Already a member? <a href="#">Login</a>
+        Already a member?
+        <NavLink to="/login" className="ml-1">
+          Login
+        </NavLink>
       </p>
 
       <form>
