@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SingUp from "./pages/SingUp";
 import BestServices from "./pages/BestServices";
+import FindDoctor from "./pages/FindDoctor";
 
 import "./index.css";
 
@@ -29,6 +30,12 @@ const router = createBrowserRouter([
     path: "/best-services",
     element: <BestServices />,
   },
+  {
+    path: "/find-doctor",
+    element: <FindDoctor/>,
+  },
+
+  
 ]);
 
 root.render(

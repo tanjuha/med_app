@@ -4,6 +4,7 @@
     @apply p-5;
     @apply text-center;
     @apply shadow-2xl;
+    @apply rounded-lg;
 }
 
 .card img {

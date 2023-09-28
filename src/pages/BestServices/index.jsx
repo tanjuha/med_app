@@ -18,7 +18,7 @@ function BestServices() {
         <Card
           label="Book an Appointment"
           imgUrl={require("../../assets/images/cat/business.png")}
-          path="/"
+          path="/find-doctor"
         />
         <Card
           label="Self Checkup"
