@@ -1,11 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import Home from "../src/pages/Home";
-import Login from "../src/pages/Login";
-import SingUp from "../src/pages/SingUp";
-import reportWebVitals from "./reportWebVitals";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
+
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import SingUp from "./pages/SingUp";
+import BestServices from "./pages/BestServices";
+
+import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
@@ -20,6 +23,11 @@ const router = createBrowserRouter([
   {
     path: "/sing-up",
     element: <SingUp />,
+  },
+
+  {
+    path: "/best-services",
+    element: <BestServices />,
   },
 ]);
 
