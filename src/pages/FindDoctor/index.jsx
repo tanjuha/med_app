@@ -1,10 +1,26 @@
-import React from "react";
-import Button from "../../components/Button";
+import React, { useEffect, useState } from "react";
 import "./findDoctor.css";
 import DoctorCard from "../../components/DoctorCard";
 import Navbar from "../../components/Navbar";
 
 const FindDoctor = () => {
+  const { doctors } = require("../../services/doctors.json");
+  const { professions } = require("../../services/professions.json");
+
+  const [filterList, setFilterList] = useState(doctors);
+  const [numberAvailableDoc, setNumberAvailableDoc] = useState(doctors?.length);
+
+  const filterBySearch = (event) => {
+    const value = event.target.value.toLowerCase();
+
+    const updateList = doctors.filter((doc) => {
+      return doc.profession.toLowerCase().includes(value);
+    });
+
+    setFilterList(updateList);
+    setNumberAvailableDoc(updateList.length);
+  };
+
   return (
     <div className="container px-5">
       <Navbar />
@@ -20,27 +36,35 @@ const FindDoctor = () => {
               className="form-control"
               list="doctorList"
               placeholder="Select doctors by specialty"
+              onChange={filterBySearch}
             />
             <datalist id="doctorList">
-              <option value="Dantist"></option>
-              <option value="Dermatolog"></option>
+              {professions?.map((pro) => (
+                <option key={pro.id} value={pro.profession}></option>
+              ))}
             </datalist>
           </div>
         </form>
         <h2 className="font-extrabold text-xl">
-          <span className="text-2xl text-primary">8</span> doctors available in
+          <span className="text-2xl text-primary">{numberAvailableDoc}</span>{" "}
+          doctors available in
         </h2>
         <h3 className="font-semibold">
           Book appointments with minimum wait-time & verified doctor details
         </h3>
         <div className="flex justify-center flex-wrap">
-          <DoctorCard
-            name="Tom"
-            imgUrl={require("../../assets/images/cat/grade.png")}
-            job="Dantist"
-            description="20 years experiens"
-            ratings="4"
-          />
+          {filterList.map((doc) => {
+            return (
+              <DoctorCard
+                key={doc.id}
+                name={doc.firstName}
+                imgUrl={doc.image}
+                job={doc.profession}
+                description={doc.email}
+                ratings={doc.ratings}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

@@ -1,0 +1,52 @@
+{
+  "professions": [
+    {
+      "id": "0",
+      "profession": "Physician"
+    },
+    {
+      "id": "1",
+      "profession": "Psychiatrist"
+    },
+    {
+      "id": "2",
+      "profession": "Podiatrist"
+    },
+    {
+      "id": "3",
+      "profession": "Dentist"
+    },
+    {
+      "id": "4",
+      "profession": "Pharmacy Technicians"
+    },
+    {
+      "id": "5",
+      "profession": "Surgeon"
+    },
+    {
+      "id": "6",
+      "profession": "Optometrist"
+    },
+    {
+      "id": "7",
+      "profession": "Pharmacist"
+    },
+    {
+      "id": "8",
+      "profession": "Nurse Practitioner"
+    },
+    {
+      "id": "9",
+      "profession": "Podiatry"
+    },
+    {
+      "id": "10",
+      "profession": "General practitioner"
+    },
+    {
+      "id": "11",
+      "profession": "Veterinarian"
+    }
+  ]
+}
