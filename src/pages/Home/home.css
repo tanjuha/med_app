@@ -1,0 +1,23 @@
+.home-title {
+  @apply my-12;
+  @apply text-7xl;
+  @apply font-bold;
+}
+
+.home-title span {
+  @apply block;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #218ffe 1.8521518260240555deg,
+    #a376f7 360deg
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-main {
+    @apply text-white;
+    @apply py-2 px-9;
+    @apply rounded-2xl;
+}

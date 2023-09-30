@@ -18,9 +18,9 @@ function Navbar() {
           </a>
         </li>
         <li className="nav-item">
-          <a href="#appointment" className="nav-link">
+          <NavLink className="nav-link" to="/find-doctor">
             Appointment
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
           <a href="#health_blog" className="nav-link">
