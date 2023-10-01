@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./findDoctor.css";
 import DoctorCard from "../../components/DoctorCard";
 import Navbar from "../../components/Navbar";
+import Modal from "../../components/Modal";
 
 const FindDoctor = () => {
   const { doctors } = require("../../services/doctors.json");
@@ -66,6 +67,7 @@ const FindDoctor = () => {
             );
           })}
         </div>
+        <Modal/>
       </div>
     </div>
   );

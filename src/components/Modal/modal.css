@@ -1,0 +1,39 @@
+.modal {
+  @apply block;
+  @apply fixed;
+  @apply w-full;
+  @apply h-full;
+  @apply left-0;
+  @apply top-0;
+  @apply overflow-auto;
+  @apply z-10;
+  @apply pt-5;
+  @apply bg-gray-800;
+  @apply bg-opacity-60;
+}
+
+.modal-content {
+  @apply m-auto;
+  @apply p-5;
+  @apply bg-white;
+  width: 540px;
+}
+
+.modal .card {
+  @apply shadow-none;
+  @apply mx-auto;
+
+}
+
+.modal .card img {
+  @apply w-28;
+}
+
+.modal .form {
+  @apply mt-5;
+  @apply p-5;
+}
+
+.modal .form .form-group {
+  @apply mb-3;
+}
