@@ -6,18 +6,19 @@ import Button from "../Button";
 import { useDispatch } from "react-redux";
 import { closeModal } from "../../redux/modal";
 
-const Modal = (name, imgUrl, job, description, ratings) => {
+const Modal = ({data}) => {
   const dispatch = useDispatch();
+  const {firstName, profession, image, email, ratings} = data;
 
   return (
     <div id="myModal" className="modal">
       <div className="modal-content">
         <DoctorCard
-          name="Tom"
-          imgUrl={require("../../assets/images/cat/top.png")}
-          job="Dentist"
-          description="3 y exp"
-          ratings="5"
+          name={firstName}
+          imgUrl={image}
+          job={profession}
+          description={email}
+          ratings={ratings}
           button={false}
         />
         <form className="form text-left">

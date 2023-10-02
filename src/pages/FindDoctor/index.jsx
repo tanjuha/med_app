@@ -13,6 +13,8 @@ const FindDoctor = () => {
   const [filterList, setFilterList] = useState(doctors);
   const [numberAvailableDoc, setNumberAvailableDoc] = useState(doctors?.length);
 
+  const [modalData, setModalData] = useState(null);
+
   const modal = useSelector((state) => state.modal.isModal);
   const dispatch = useDispatch();
 
@@ -69,21 +71,14 @@ const FindDoctor = () => {
                 description={doc.email}
                 ratings={doc.ratings}
                 btnOnClick={() => {
+                  setModalData(doc);
                   dispatch(openModal());
                 }}
               />
             );
           })}
         </div>
-        {modal && (
-          <Modal
-            name="tom"
-            imgUrl="#"
-            job="job"
-            description="email"
-            ratings="3"
-          />
-        )}
+        {modal && <Modal data={modalData} />}
       </div>
     </div>
   );
