@@ -2,10 +2,17 @@ import React from "react";
 import Button from "../Button";
 import { BsCheckLg, BsFillStarFill } from "react-icons/bs";
 
-const DoctorCard = ({ name, imgUrl, job, description, ratings }) => {
-
+const DoctorCard = ({
+  name,
+  imgUrl,
+  job,
+  description,
+  ratings,
+  button = true,
+  btnOnClick
+}) => {
   return (
-    <div className="card p-0" >
+    <div className="card p-0">
       <img src={imgUrl} />
       <span className="text-2xl font-extrabold block">{name}</span>
       <span>{job}</span>
@@ -16,10 +23,13 @@ const DoctorCard = ({ name, imgUrl, job, description, ratings }) => {
           <BsFillStarFill key={i} color="yellow" />
         ))}
       </div>
-      <Button
-        className="bg-primary text-white font-bold p-5 w-full mt-4 rounded-lg"
-        label="Book Appointment No Booking Free"
-      />
+      {button && (
+        <Button
+          className="bg-primary text-white font-bold p-5 w-full mt-4 rounded-lg"
+          label="Book Appointment No Booking Free"
+          onClick={btnOnClick}
+        />
+      )}
     </div>
   );
 };

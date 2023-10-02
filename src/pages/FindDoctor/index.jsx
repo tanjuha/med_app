@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./findDoctor.css";
 import DoctorCard from "../../components/DoctorCard";
 import Navbar from "../../components/Navbar";
+import Modal from "../../components/Modal";
+import { useSelector, useDispatch } from "react-redux";
+import { openModal } from "../../redux/modal";
 
 const FindDoctor = () => {
   const { doctors } = require("../../services/doctors.json");
@@ -9,6 +12,9 @@ const FindDoctor = () => {
 
   const [filterList, setFilterList] = useState(doctors);
   const [numberAvailableDoc, setNumberAvailableDoc] = useState(doctors?.length);
+
+  const modal = useSelector((state) => state.modal.isModal);
+  const dispatch = useDispatch();
 
   const filterBySearch = (event) => {
     const value = event.target.value.toLowerCase();
@@ -62,10 +68,22 @@ const FindDoctor = () => {
                 job={doc.profession}
                 description={doc.email}
                 ratings={doc.ratings}
+                btnOnClick={() => {
+                  dispatch(openModal());
+                }}
               />
             );
           })}
         </div>
+        {modal && (
+          <Modal
+            name="tom"
+            imgUrl="#"
+            job="job"
+            description="email"
+            ratings="3"
+          />
+        )}
       </div>
     </div>
   );
