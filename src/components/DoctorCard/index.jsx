@@ -9,6 +9,7 @@ const DoctorCard = ({
   description,
   ratings,
   button = true,
+  btnOnClick
 }) => {
   return (
     <div className="card p-0">
@@ -26,6 +27,7 @@ const DoctorCard = ({
         <Button
           className="bg-primary text-white font-bold p-5 w-full mt-4 rounded-lg"
           label="Book Appointment No Booking Free"
+          onClick={btnOnClick}
         />
       )}
     </div>

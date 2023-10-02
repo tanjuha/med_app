@@ -3,8 +3,12 @@ import "./modal.css";
 import "../Form/form.css";
 import DoctorCard from "../DoctorCard";
 import Button from "../Button";
+import { useDispatch } from "react-redux";
+import { closeModal } from "../../redux/modal";
 
-const Modal = () => {
+const Modal = (name, imgUrl, job, description, ratings) => {
+  const dispatch = useDispatch();
+
   return (
     <div id="myModal" className="modal">
       <div className="modal-content">
@@ -50,7 +54,12 @@ const Modal = () => {
             />
           </div>
           <div>
-            <Button label="Book New" type="submit" className="btn bg-primary w-full" />
+            <Button
+              onClick={() => dispatch(closeModal())}
+              label="Book New"
+              type="submit"
+              className="btn bg-primary w-full"
+            />
           </div>
         </form>
       </div>
