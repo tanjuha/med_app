@@ -2,8 +2,13 @@ import React from "react";
 import "./navbar.css";
 import { NavLink } from "react-router-dom";
 import AppointmentDetails from "../AppointmentDetails";
+import { useSelector } from "react-redux";
 
 function Navbar() {
+  const appointment = useSelector((state) => state.appointment);
+
+  const { date, doctor, name, phone, speciality, time } = appointment.value;
+
   return (
     <>
       <nav className="flex justify-between py-4">
@@ -50,14 +55,16 @@ function Navbar() {
           </li>
         </ul>
       </nav>
-      <AppointmentDetails
-        doctor="test"
-        speciality="test"
-        name="test"
-        phone="test"
-        date="test"
-        time="test"
-      />
+      {appointment.isAppointment && (
+        <AppointmentDetails
+          doctor={doctor}
+          speciality={speciality}
+          name={name}
+          phone={phone}
+          date={date}
+          time={time}
+        />
+      )}
     </>
   );
 }
