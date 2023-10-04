@@ -70,6 +70,7 @@ const FindDoctor = () => {
                 job={doc.profession}
                 description={doc.email}
                 ratings={doc.ratings}
+                available={doc.available}
                 btnOnClick={() => {
                   setModalData(doc);
                   dispatch(openModal());

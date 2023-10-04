@@ -63,7 +63,7 @@
       "maidenName": "Cole",
       "profession": "Physician",
       "ratings": "5",
-      "available": true,
+      "available": false,
 
       "age": 28,
       "gender": "male",
