@@ -4,6 +4,7 @@ export const appointmentSlice = createSlice({
   name: "appointment",
   initialState: {
     isAppointment: false,
+    isAppointmentBooked: false,
     value: {
       doctor: "tom",
       speciality: "dentest",
@@ -15,14 +16,17 @@ export const appointmentSlice = createSlice({
   },
   reducers: {
     closeAppointment: (state) => {
-      return { ...state, isAppointment: false };
+      return { ...state, isAppointment: false, isAppointmentBooked: true };
+    },
+    cancelAppointment: (state) => {
+      return { ...state, isAppointment: false, isAppointmentBooked: false };
     },
     openAppointment: (state) => {
       return { ...state, isAppointment: true };
     },
     setDateAppointment: (state, action) => {
-      const {doctor, speciality, name, phone, date, time} = action.payload
-      
+      const { doctor, speciality, name, phone, date, time } = action.payload;
+
       return {
         ...state,
         value: {
@@ -34,11 +38,12 @@ export const appointmentSlice = createSlice({
           time,
         },
         isAppointment: true,
-      }
-    }
+      };
+    },
   },
 });
 
-export const { closeAppointment, openAppointment, setDateAppointment } = appointmentSlice.actions;
+export const { closeAppointment, openAppointment, setDateAppointment, cancelAppointment } =
+  appointmentSlice.actions;
 
 export default appointmentSlice.reducer;
