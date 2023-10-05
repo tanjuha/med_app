@@ -1,0 +1,16 @@
+.appointmentDetails {
+  @apply fixed;
+  @apply w-72;
+  @apply h-56;
+  @apply right-0;
+  @apply bottom-0;
+  @apply m-5;
+  @apply p-5;
+  @apply rounded-md;
+  @apply text-white;
+  @apply bg-primary;
+}
+
+.appointmentDetails li {
+  @apply mb-1;
+}

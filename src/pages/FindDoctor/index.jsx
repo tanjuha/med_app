@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./findDoctor.css";
 import DoctorCard from "../../components/DoctorCard";
 import Navbar from "../../components/Navbar";
@@ -6,12 +6,17 @@ import Modal from "../../components/Modal";
 import { useSelector, useDispatch } from "react-redux";
 import { openModal } from "../../redux/modal";
 
-const FindDoctor = () => {
+const FindDoctor = ({
+  title = "Find a doctor at your own easy",
+  isInstantly = false,
+}) => {
   const { doctors } = require("../../services/doctors.json");
   const { professions } = require("../../services/professions.json");
 
   const [filterList, setFilterList] = useState(doctors);
   const [numberAvailableDoc, setNumberAvailableDoc] = useState(doctors?.length);
+
+  const [modalData, setModalData] = useState(null);
 
   const modal = useSelector((state) => state.modal.isModal);
   const dispatch = useDispatch();
@@ -31,7 +36,7 @@ const FindDoctor = () => {
     <div className="container px-5">
       <Navbar />
       <div className="text-center">
-        <h1 className="font-extrabold mt-12">Find a doctor at your own easy</h1>
+        <h1 className="font-extrabold mt-12">{title}</h1>
         <img
           className="m-auto w-60"
           src={require("../../assets/images/cat/find.png")}
@@ -68,22 +73,16 @@ const FindDoctor = () => {
                 job={doc.profession}
                 description={doc.email}
                 ratings={doc.ratings}
+                available={doc.available}
                 btnOnClick={() => {
+                  setModalData(doc);
                   dispatch(openModal());
                 }}
               />
             );
           })}
         </div>
-        {modal && (
-          <Modal
-            name="tom"
-            imgUrl="#"
-            job="job"
-            description="email"
-            ratings="3"
-          />
-        )}
+        {modal && <Modal data={modalData} isInstantly={isInstantly} />}
       </div>
     </div>
   );

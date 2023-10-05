@@ -9,7 +9,9 @@ const DoctorCard = ({
   description,
   ratings,
   button = true,
-  btnOnClick
+  btnOnClick,
+  booked = false,
+  available = true,
 }) => {
   return (
     <div className="card p-0">
@@ -24,11 +26,21 @@ const DoctorCard = ({
         ))}
       </div>
       {button && (
-        <Button
-          className="bg-primary text-white font-bold p-5 w-full mt-4 rounded-lg"
-          label="Book Appointment No Booking Free"
-          onClick={btnOnClick}
-        />
+        <>
+          {available ? (
+            <Button
+              onClick={btnOnClick}
+              className="bg-primary text-white font-bold p-5 w-full mt-4 rounded-lg"
+              label="Book Appointment No Booking Free"
+            ></Button>
+          ) : (
+            <Button
+              onClick={btnOnClick}
+              className="bg-red-600 text-white font-bold p-5 w-full mt-4 rounded-lg"
+              label="Cancel Appointment No Booking Free"
+            ></Button>
+          )}
+        </>
       )}
     </div>
   );
