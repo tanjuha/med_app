@@ -13,6 +13,7 @@ export const appointmentSlice = createSlice({
       date: "11.33.55",
       time: "11:33",
     },
+    isInstantly: false,
   },
   reducers: {
     closeAppointment: (state) => {
@@ -40,10 +41,22 @@ export const appointmentSlice = createSlice({
         isAppointment: true,
       };
     },
+    closeInstantlyBook: (state) => {
+      return { ...state, isInstantly: false };
+    },
+    setInstantlyBook: (state) => {
+      return { ...state, isInstantly: true };
+    },
   },
 });
 
-export const { closeAppointment, openAppointment, setDateAppointment, cancelAppointment } =
-  appointmentSlice.actions;
+export const {
+  closeAppointment,
+  openAppointment,
+  setDateAppointment,
+  cancelAppointment,
+  closeInstantlyBook,
+  setInstantlyBook,
+} = appointmentSlice.actions;
 
 export default appointmentSlice.reducer;
