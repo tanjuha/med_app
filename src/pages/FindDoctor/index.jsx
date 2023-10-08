@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./findDoctor.css";
 import DoctorCard from "../../components/DoctorCard";
 import Navbar from "../../components/Navbar";
 import Modal from "../../components/Modal";

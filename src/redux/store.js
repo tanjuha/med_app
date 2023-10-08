@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./counter";
 import modalReducer from "./modal";
 import appointmentReducer from "./appointment";
+import feedbackReducer from "./feedback";
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
     modal: modalReducer,
     appointment: appointmentReducer,
+    feedback: feedbackReducer,
   },
 });

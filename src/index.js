@@ -13,7 +13,7 @@ import store from "./redux/store";
 
 import "./index.css";
 import FindDoctorInstantly from "./pages/FindDoctorInstantly";
-import ReviewForm from "./components/ReviewForm";
+import ReviewForm from "./pages/ReviewForm";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
