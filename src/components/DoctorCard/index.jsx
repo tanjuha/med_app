@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button";
-import { BsCheckLg, BsFillStarFill } from "react-icons/bs";
+import { BsFillStarFill } from "react-icons/bs";
 
 const DoctorCard = ({
   name,

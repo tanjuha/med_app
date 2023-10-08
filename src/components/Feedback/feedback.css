@@ -1,0 +1,19 @@
+.modal .modal-content {
+  @apply relative;
+}
+
+.modal .close {
+  @apply absolute;
+  @apply top-0;
+  @apply right-0;
+  @apply p-5;
+}
+
+.feedback .modal-content {
+  @apply p-20;
+  width: 41rem;
+}
+
+.feedback .form {
+  @apply mt-0;
+}
