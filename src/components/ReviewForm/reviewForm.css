@@ -1,0 +1,18 @@
+
+.table > :not(caption) > * > * {
+  @apply pl-2 pr-5 py-4;
+  @apply border-b;
+}
+
+.table h1 {
+  @apply text-left;
+}
+
+.table th {
+  @apply font-extrabold;
+}
+
+.table .feedback{
+    @apply italic;
+    @apply text-gray-500;
+}

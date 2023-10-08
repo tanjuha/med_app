@@ -13,6 +13,7 @@ import store from "./redux/store";
 
 import "./index.css";
 import FindDoctorInstantly from "./pages/FindDoctorInstantly";
+import ReviewForm from "./components/ReviewForm";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
@@ -41,7 +42,10 @@ const router = createBrowserRouter([
     path: "/find-doctor-instantly",
     element: <FindDoctorInstantly />,
   },
-  
+  {
+    path: "/reviews",
+    element: <ReviewForm />,
+  },
 ]);
 
 root.render(
