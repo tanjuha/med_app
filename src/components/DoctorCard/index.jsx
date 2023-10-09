@@ -22,7 +22,7 @@ const DoctorCard = ({
       <div className="flex justify-center items-center">
         <span className="text-lg font-extrabold mr-1">Ratings: </span>{" "}
         {[...Array(Number(ratings))].map((e, i) => (
-          <BsFillStarFill key={i} color="yellow" />
+          <BsFillStarFill key={i} color="#ffc107" />
         ))}
       </div>
       {button && (

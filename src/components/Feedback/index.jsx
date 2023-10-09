@@ -1,20 +1,21 @@
 import React, { useState } from "react";
-import Button from "../Button";
-import "./feedback.css";
 import { useDispatch } from "react-redux";
 import { closeFeedback, setFeedback } from "../../redux/feedback";
+
 import { MdClose } from "react-icons/md";
+import Button from "../Button";
+import StarRating from "../StarRating";
+
+import "./feedback.css";
 
 const Feedback = () => {
   const [text, setText] = useState("");
-
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     dispatch(setFeedback({ text: text }));
-
     dispatch(closeFeedback());
   };
 
@@ -26,7 +27,7 @@ const Feedback = () => {
         </button>
         <form className="form text-left" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Name</label>
+            <label>Name</label>
             <input
               type="text"
               className="form-control"
@@ -34,13 +35,18 @@ const Feedback = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="exampleInputPhone">Review:</label>
+            <label>Review:</label>
             <textarea
               className="form-control"
               placeholder="Enter your Feedback"
+              rows="4"
               value={text}
               onChange={(event) => setText(event.target.value)}
             />
+          </div>
+          <div className="form-group">
+            <label>Rating:</label>
+            <StarRating />
           </div>
           <div>
             <Button
