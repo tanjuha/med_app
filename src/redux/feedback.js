@@ -5,6 +5,7 @@ export const feedbackSlice = createSlice({
   initialState: {
     isFeedback: false,
     feedback: "test",
+    starRating: null,
   },
   reducers: {
     openFeedback: (state) => {
@@ -27,9 +28,19 @@ export const feedbackSlice = createSlice({
         feedback: text,
       };
     },
+
+    setStarRating: (state, action) => {
+      const { number } = action.payload;
+
+      return {
+        ...state,
+        starRating: number,
+      };
+    },
   },
 });
 
-export const { setFeedback, openFeedback, closeFeedback } = feedbackSlice.actions;
+export const { setFeedback, openFeedback, closeFeedback, setStarRating } =
+  feedbackSlice.actions;
 
 export default feedbackSlice.reducer;
