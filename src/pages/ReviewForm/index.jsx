@@ -22,7 +22,7 @@ const ReviewForm = () => {
     <div className="container m-auto px-5">
       <Navbar />
       <div className="table-wrap">
-        <table className="table">
+        <table className="table m-auto">
           <caption>
             <h1 className="font-extrabold mt-12 mb-5">Reviews</h1>
           </caption>

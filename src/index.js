@@ -14,6 +14,7 @@ import store from "./redux/store";
 import "./index.css";
 import FindDoctorInstantly from "./pages/FindDoctorInstantly";
 import ReviewForm from "./pages/ReviewForm";
+import Reports from "./pages/Reports";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/reviews",
     element: <ReviewForm />,
+  },
+  {
+    path: "/reports",
+    element: <Reports />,
   },
 ]);
 

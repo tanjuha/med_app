@@ -39,6 +39,11 @@ function Navbar() {
               Reviews
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/reports">
+              Reports
+            </NavLink>
+          </li>
           <li>
             <NavLink
               to="/sing-up"
