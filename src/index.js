@@ -5,7 +5,6 @@ import reportWebVitals from "./reportWebVitals";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import SingUp from "./pages/SingUp";
 import BestServices from "./pages/BestServices";
 import FindDoctor from "./pages/FindDoctor";
 import { Provider } from "react-redux";
