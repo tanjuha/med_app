@@ -9,10 +9,11 @@ import {
   PWD_REGEX,
   PHONE_REGEX,
   EMAIL_REGEX,
+  REGISTER_URL,
 } from "../../services/consts";
-
 import Button from "../../components/Button";
 import "../../components/Form/form.css";
+import axios from "../../api/axios";
 
 const Register = () => {
   const roleRef = useRef();
@@ -90,8 +91,35 @@ const Register = () => {
       return;
     }
 
-    console.log(name, role, phone, email, password);
-    setSuccess(true);
+    try {
+      const response = await axios.post(
+        REGISTER_URL,
+        JSON.stringify({
+          name,
+          role,
+          phone,
+          email,
+          password,
+        }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log(response.data);
+      console.log(response.accessToken);
+      console.log(JSON.stringify(response));
+      setSuccess(true);
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 409) {
+        setErrMsg("Username Taken");
+      } else {
+        setErrMsg("Registration Failed!");
+      }
+      errRef.current.focus();
+    }
   };
 
   return (
