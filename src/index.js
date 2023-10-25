@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
-import Home from "./pages/Home";
 import Login from "./pages/Login";
 import BestServices from "./pages/BestServices";
 import FindDoctor from "./pages/FindDoctor";
@@ -15,12 +14,13 @@ import FindDoctorInstantly from "./pages/FindDoctorInstantly";
 import ReviewForm from "./pages/ReviewForm";
 import Reports from "./pages/Reports";
 import Register from "./pages/Register";
+import Authentication from "./pages/Authentication";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Authentication />,
   },
   {
     path: "/login",

@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 import Navbar from "../../components/Navbar";
-import Button from "../../components/Button";
 import "./home.css";
 
-function Home() {
+
+const Home = () =>{
   return (
     <header className="container m-auto px-5">
       <Navbar />
