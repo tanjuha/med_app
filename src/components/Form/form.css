@@ -9,7 +9,8 @@
 
 .form-group label {
   @apply font-bold;
-  @apply block;
+  @apply flex;
+  @apply items-center;
   @apply text-sm;
 }
 
@@ -30,4 +31,32 @@
   @apply block;
   @apply mt-5;
   @apply text-center;
+}
+.instructions {
+  @apply relative;
+  @apply text-xs;
+  @apply rounded-md;
+  @apply p-2;
+  @apply -bottom-1;
+  @apply text-white;
+  @apply bg-emerald-900;
+}
+
+.instructions > svg {
+  @apply absolute;
+  @apply mr-1;
+}
+
+.offscreen {
+  @apply absolute;
+  @apply -left-full;
+}
+
+.errMsg {
+  @apply p-2;
+  @apply mb-2;
+  @apply font-bold;
+  @apply rounded-md;
+  @apply text-white;
+  @apply bg-red-600;
 }

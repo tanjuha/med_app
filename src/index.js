@@ -15,6 +15,7 @@ import "./index.css";
 import FindDoctorInstantly from "./pages/FindDoctorInstantly";
 import ReviewForm from "./pages/ReviewForm";
 import Reports from "./pages/Reports";
+import Register from "./pages/Register";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/sing-up",
-    element: <SingUp />,
+    element: <Register />,
   },
 
   {
