@@ -2,12 +2,22 @@ import React from "react";
 import "./navbar.css";
 import { NavLink } from "react-router-dom";
 import AppointmentDetails from "../AppointmentDetails";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutUser } from "../../redux/auth";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
-function Navbar() {
+const Navbar = () => {
   const appointment = useSelector((state) => state.appointment);
 
   const { date, doctor, name, phone, speciality, time } = appointment.value;
+  const user = useSelector(state => state.auth.currentUser)
+
+  const dispatch = useDispatch();
+  const handelLogout = () => {
+    dispatch(logoutUser());
+    signOut(auth);
+  };
 
   return (
     <>
@@ -44,19 +54,17 @@ function Navbar() {
               Reports
             </NavLink>
           </li>
+          <li className="nav-item">
+            <b> {user.username}</b>
+          </li>
           <li>
-            <NavLink
-              to="/sing-up"
+            <button
+            onClick={handelLogout}
               id="sing_up"
               className="btn-outline-primary mr-4"
             >
-              Sing Up
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/login" id="login" className="btn-outline-primary">
-              Login
-            </NavLink>
+              Log out
+            </button>
           </li>
         </ul>
       </nav>

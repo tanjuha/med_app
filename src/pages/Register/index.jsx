@@ -13,7 +13,8 @@ import {
 } from "../../services/consts";
 import Button from "../../components/Button";
 import "../../components/Form/form.css";
-import axios from "../../api/axios";
+import { createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const Register = () => {
   const roleRef = useRef();
@@ -78,8 +79,22 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((authUser) => {
+      signInWithEmailAndPassword(auth, email, password).then(
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+      );
+      
+    }).then(
+      navigate("/")
+    )
+    .catch((err) => {
+      alert(err); // TODO add Error Component
+    });
 
     // if button enabled with js hack
     const fieldName = NAME_REGEX.test(name);
@@ -89,36 +104,6 @@ const Register = () => {
     if (!fieldName || !fieldPhone || !fieldEmail || !fieldPwd) {
       setErrMsg("Invalid Entry");
       return;
-    }
-
-    try {
-      const response = await axios.post(
-        REGISTER_URL,
-        JSON.stringify({
-          name,
-          role,
-          phone,
-          email,
-          password,
-        }),
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
-      );
-      console.log(response.data);
-      console.log(response.accessToken);
-      console.log(JSON.stringify(response));
-      setSuccess(true);
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg("No Server Response");
-      } else if (err.response?.status === 409) {
-        setErrMsg("Username Taken");
-      } else {
-        setErrMsg("Registration Failed!");
-      }
-      errRef.current.focus();
     }
   };
 

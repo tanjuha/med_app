@@ -6,4 +6,5 @@ export const PHONE_REGEX =  /^\d+$/; // only numbers
 
 // Urls
 export const REGISTER_URL = "/register";
+export const LOGIN_URL = "/login"
 
