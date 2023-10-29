@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { auth } from "../../firebase";
-import Home from "../Home";
-import Login from "../Login";
+import Home from "../../pages/Home";
+import Login from "../../pages/Login";
 import { useSelector, useDispatch } from "react-redux";
 import { loginUser, setLoading } from "../../redux/auth";
 import { useNavigate } from "react-router-dom";

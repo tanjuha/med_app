@@ -1,8 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-
+import {
+  Route,
+  BrowserRouter,
+  Routes,
+} from "react-router-dom";
 import Login from "./pages/Login";
 import BestServices from "./pages/BestServices";
 import FindDoctor from "./pages/FindDoctor";
@@ -14,54 +17,42 @@ import FindDoctorInstantly from "./pages/FindDoctorInstantly";
 import ReviewForm from "./pages/ReviewForm";
 import Reports from "./pages/Reports";
 import Register from "./pages/Register";
-import Authentication from "./pages/Authentication";
+import Home from "./pages/Home";
+import PrivateRoute from "./components/PrivateRoute";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Authentication />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/sing-up",
-    element: <Register />,
-  },
-
-  {
-    path: "/best-services",
-    element: <BestServices />,
-  },
-  {
-    path: "/find-doctor",
-    element: <FindDoctor />,
-  },
-  {
-    path: "/find-doctor-instantly",
-    element: <FindDoctorInstantly />,
-  },
-  {
-    path: "/reviews",
-    element: <ReviewForm />,
-  },
-  {
-    path: "/reports",
-    element: <Reports />,
-  },
-]);
 
 root.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route exact path="/sing-up" element={<Register />} />
+        <Route path="/" element={<PrivateRoute />}>
+          <Route exact path="/" element={<Home />} />
+        </Route>
+        <Route path="/best-services" element={<PrivateRoute />}>
+          <Route exact path="/best-services" element={<BestServices />} />
+        </Route>
+        <Route path="/find-doctor" element={<PrivateRoute />}>
+          <Route exact path="/find-doctor" element={<FindDoctor />} />
+        </Route>
+        <Route path="/find-doctor-instantly" element={<PrivateRoute />}>
+          <Route
+            exact
+            path="/find-doctor-instantly"
+            element={<FindDoctorInstantly />}
+          />
+        </Route>
+        <Route path="/reviews" element={<PrivateRoute />}>
+          <Route exact path="/reviews" element={<ReviewForm />} />
+        </Route>
+        <Route path="/reports" element={<PrivateRoute />}>
+          <Route exact path="/reports" element={<Reports />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

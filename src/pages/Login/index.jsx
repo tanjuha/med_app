@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import axios from "../../api/axios";
-
 import Button from "../../components/Button";
 import "../../components/Form/form.css";
-import { LOGIN_URL } from "../../services/consts";
 import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
@@ -30,6 +27,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     signInWithEmailAndPassword(auth, email, password);
+    navigate("/");
   };
 
   return (
