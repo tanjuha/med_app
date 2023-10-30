@@ -50,8 +50,18 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
+            <NavLink className="nav-link" to="/find-doctor-instantly">
+              Instant Consultation
+            </NavLink>
+          </li>
+          <li className="nav-item">
             <NavLink className="nav-link" to="/reports">
               Reports
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/doctors">
+              Doctord
             </NavLink>
           </li>
           <li className="nav-item">

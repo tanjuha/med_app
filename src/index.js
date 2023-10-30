@@ -19,6 +19,7 @@ import Reports from "./pages/Reports";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import PrivateRoute from "./components/PrivateRoute";
+import Doctors from "./components/Doctors";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -46,6 +47,9 @@ root.render(
         </Route>
         <Route path="/reviews" element={<PrivateRoute />}>
           <Route exact path="/reviews" element={<ReviewForm />} />
+        </Route>
+        <Route path="/doctors" element={<PrivateRoute />}>
+          <Route exact path="/doctors" element={<Doctors />} />
         </Route>
         <Route path="/reports" element={<PrivateRoute />}>
           <Route exact path="/reports" element={<Reports />} />
