@@ -23,7 +23,6 @@ const Authentication = () => {
           })
         );
         dispatch(setLoading(false));
-        navigate("/");
       } else {
         dispatch(setLoading(false));
         navigate("/login");
