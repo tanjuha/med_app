@@ -64,21 +64,23 @@ const FindDoctor = ({
         </h3>
         <div className="flex justify-center flex-wrap">
           {filterList.map((doc) => {
-            return (
-              <DoctorCard
-                key={doc.id}
-                name={doc.firstName}
-                imgUrl={doc.image}
-                job={doc.profession}
-                description={doc.email}
-                ratings={doc.ratings}
-                available={doc.available}
-                btnOnClick={() => {
-                  setModalData(doc);
-                  dispatch(openModal());
-                }}
-              />
-            );
+            if(doc.available) {
+              return (
+                <DoctorCard
+                  key={doc.id}
+                  name={doc.firstName}
+                  imgUrl={doc.image}
+                  job={doc.profession}
+                  description={doc.email}
+                  ratings={doc.ratings}
+                  available={doc.available}
+                  btnOnClick={() => {
+                    setModalData(doc);
+                    dispatch(openModal());
+                  }}
+                />
+              );
+            }
           })}
         </div>
         {modal && <Modal data={modalData} isInstantly={isInstantly} />}

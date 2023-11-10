@@ -11,7 +11,7 @@ const Navbar = () => {
   const appointment = useSelector((state) => state.appointment);
 
   const { date, doctor, name, phone, speciality, time } = appointment.value;
-  const user = useSelector(state => state.auth.currentUser)
+  const user = useSelector((state) => state.auth.currentUser);
 
   const dispatch = useDispatch();
   const handelLogout = () => {
@@ -60,6 +60,11 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
+            <NavLink className="nav-link" to="/my-book">
+              My Book
+            </NavLink>
+          </li>
+          <li className="nav-item">
             <NavLink className="nav-link" to="/doctors">
               Doctord
             </NavLink>
@@ -69,7 +74,7 @@ const Navbar = () => {
           </li>
           <li>
             <button
-            onClick={handelLogout}
+              onClick={handelLogout}
               id="sing_up"
               className="btn-outline-primary mr-4"
             >
@@ -90,6 +95,6 @@ const Navbar = () => {
       )}
     </>
   );
-}
+};
 
 export default Navbar;

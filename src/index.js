@@ -20,6 +20,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import PrivateRoute from "./components/PrivateRoute";
 import Doctors from "./components/Doctors";
+import MyBook from "./pages/MyBook/MyBook";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -38,6 +39,10 @@ root.render(
         <Route path="/find-doctor" element={<PrivateRoute />}>
           <Route exact path="/find-doctor" element={<FindDoctor />} />
         </Route>
+        <Route path="/my-book" element={<PrivateRoute />}>
+          <Route exact path="/my-book" element={<MyBook/>} />
+        </Route>
+        
         <Route path="/find-doctor-instantly" element={<PrivateRoute />}>
           <Route
             exact
