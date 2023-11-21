@@ -6,12 +6,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../../redux/auth";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
+import DropdownMenu from "../DropDownMenu";
+
 
 const Navbar = () => {
   const appointment = useSelector((state) => state.appointment);
 
   const { date, doctor, name, phone, speciality, time } = appointment.value;
-  const user = useSelector((state) => state.auth.currentUser);
 
   const dispatch = useDispatch();
   const handelLogout = () => {
@@ -70,7 +71,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <b> {user.username}</b>
+            <DropdownMenu />
           </li>
           <li>
             <button

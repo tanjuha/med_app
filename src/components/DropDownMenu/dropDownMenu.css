@@ -1,0 +1,12 @@
+.dropdown {
+  @apply relative;
+}
+
+.dropdown .dropdown-content {
+  @apply absolute;
+  @apply w-40;
+  @apply flex;
+  @apply flex-col;
+  @apply shadow-2xl;
+  @apply p-2;
+}
