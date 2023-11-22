@@ -21,6 +21,7 @@ import Home from "./pages/Home";
 import PrivateRoute from "./components/PrivateRoute";
 import Doctors from "./components/Doctors";
 import MyBook from "./pages/MyBook/MyBook";
+import Profile from "./pages/Profile";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -58,6 +59,9 @@ root.render(
         </Route>
         <Route path="/reports" element={<PrivateRoute />}>
           <Route exact path="/reports" element={<Reports />} />
+        </Route>
+        <Route path="/profile" element={<PrivateRoute />}>
+          <Route exact path="/profile" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>

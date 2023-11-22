@@ -20,14 +20,14 @@ const DropdownMenu = () => {
   return (
     <div className="dropdown">
       <button className="font-bold flex items-center" onClick={toggleDropdown}>
-        {user.username} <MdArrowDropDown />
+        Welcome, {user.username} <MdArrowDropDown />
       </button>
       {isDropdownOpen && (
         <div className="dropdown-content" onBlur={closeDropdown} tabIndex="0">
-          <NavLink className="nav-link" to="/find-doctor">
+          <NavLink className="nav-link" to="/profile">
             Your Profile
           </NavLink>
-          <NavLink className="nav-link" to="/find-doctor">
+          <NavLink className="nav-link" to="/reports">
             Your Reports
           </NavLink>
         </div>

@@ -5,6 +5,7 @@ export const authSlice = createSlice({
   initialState: {
     currentUser: null,
     isLoading: true,
+    userPhone: "030 00 404 04",
   },
   reducers: {
     loginUser: (state, action) => {
@@ -16,9 +17,16 @@ export const authSlice = createSlice({
     setLoading: (state, action) => {
       return { ...state, isLoading: action.payload };
     },
+    setUserPhone: (state, action) => {
+      return { ...state, userPhone: action.payload };
+    },
+    editUserName: (state, action) => {
+      return { ...state, currentUser: {...state.currentUser, username: action.payload}}
+    }
   },
 });
 
-export const { loginUser, logoutUser, setLoading } = authSlice.actions;
+export const { loginUser, logoutUser, setLoading, setUserPhone, editUserName } =
+  authSlice.actions;
 
 export default authSlice.reducer;

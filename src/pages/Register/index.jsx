@@ -15,8 +15,13 @@ import Button from "../../components/Button";
 import "../../components/Form/form.css";
 import { createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import { useDispatch } from "react-redux";
+import { setUserPhone } from "../../redux/auth";
 
 const Register = () => {
+  const dispatch = useDispatch()
+
+
   const roleRef = useRef();
   const errRef = useRef();
 
@@ -88,7 +93,7 @@ const Register = () => {
           displayName: name,
         })
       );
-      
+      dispatch(setUserPhone(phone))
     }).then(
       navigate("/")
     )
